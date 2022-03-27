@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,38 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>CodeQuiz</title>
 </head>
+
 <body>
-    <div class="quizbox">
-        
+    <!--top line header-->
+    <div class="first-line">
+        <div class="view-score">
+            <a href="/">View High Scores</a>
+        </div>
+        <div class="timer">
+            <span>Timer</span>
+        </div>
     </div>
-    <script src="./assets/js/script.js"></script>   
+    <!--Start Quiz Box-->
+<div class="container">
+    <div id=start-page class="start-box">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the time limit.
+            Keep in mind that incorrect answers will penalize your score/time
+            by ten seconds!</p>
+        <button id= start-btn class="btn">Start Quiz</button>
+        <p class="question-answer">Correct or Wrong</p>
+    </div>
+    <!--Question Box-->
+    <div id="question-container" class="hide">
+        <div class="answer-buttons" class="btn-choices">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 1</button>
+        </div>
+    </div>
+</div>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
