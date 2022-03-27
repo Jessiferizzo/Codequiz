@@ -6,40 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="external/jquery/jquery.js"></script>
+    <script src="jquery-ui.min.js"></script>
     <title>CodeQuiz</title>
 </head>
 
 <body>
-<div class="container">
-    <!--top line header-->
-    <div class="first-line">
-        <div class="view-score">
-            <a href="/">View High Scores</a>
+    <div class="container">
+        <!--top line header-->
+        <div class="first-line">
+            <div class="view-score">
+                <a href="/">View High Scores</a>
+            </div>
+            <div class="timer">
+                <span>Timer</span>
+            </div>
         </div>
-        <div class="timer">
-            <span>Timer</span>
+        <!--Start Quiz Box-->
+        <div id=start-page class="hide" >
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit.
+                Keep in mind that incorrect answers will penalize your score/time
+                by ten seconds!</p>
+            <button id=start-btn class="btn">Start Quiz</button>
         </div>
-    </div>
-    <!--Start Quiz Box-->
-    <div id=start-page class="start-box">
-        <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the time limit.
-            Keep in mind that incorrect answers will penalize your score/time
-            by ten seconds!</p>
-        <button id= start-btn class="btn">Start Quiz</button>
-        <p style="text-align:left;color:gray;font-style: italic; font-size:1.3rem;">Correct or Wrong</p>
-    </div>
-    <!--Question Box
-    <div id="question-container" class="hide">
-        <div class="answer-buttons" class="btn-choices">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 1</button>
+        <div class="question-box">
+        <h2 class= "quiz-question" id="question"><p style="font-size:3rem;text-align:left;margin-bottom:0; margin-inline-start: 1rem;padding:10px;">Question</p></h2>
+        <ul class="answer-choices">
+            <li class="btn">Answer 1</li>
+            <li class="btn">Answer 2</li>
+            <li class="btn">Answer 3</li>
+            <li class="btn">Answer 4</li>
+        </ul>
         </div>
-        -->
-    </div>
-</div>
+    </div class="hide" id="result"><p style="text-align:left;color:gray;font-style: italic; font-size:1.3rem;">Correct or Wrong</p></div>
     <script src="./assets/js/script.js"></script>
 </body>
 

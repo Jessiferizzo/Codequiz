@@ -1,5 +1,8 @@
 //array of questions and answers
-
+let arr= {
+    Question 1:"Commonly used data types do not include:"
+    answer: 
+}
 
 //add event listener to start button 
 
