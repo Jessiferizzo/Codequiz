@@ -1,5 +1,5 @@
 //array of questions and answers
-const myQuestions = [
+var myQuestions = [
     {
       question: "Commonly used data types DO Not Include_______?",
       answers: {
@@ -57,25 +57,75 @@ const myQuestions = [
       },
   ];
 
-//add event listener to start button 
+//variables declared 
+var score=0;
+var myQuestionsIndex=0;
 
+//constants declared
+var startPage = document.querySelector("#start-page");
+var quizBox = document.querySelector("#quiz-box");
+var highScore = document.querySelector(".view-score");
+var option_list = document.querySelector(".option_list");
+var timer = document.querySelector("header .timer");
+var timeText = document.querySelector(".timer");
+var timeCount = document.querySelector(".timer");
+var answerChoices = document.getElementById(".answer-choices");
 
 
 //event click button starts the quiz
+function startQuiz (){
+    console.log("quiz begins!");
 
+for(i=0;i<myQuestionsIndex.length;i++);{
+    var myQuestions=document.querySelector("#quiz-box");
+    myQuestions.textContent= userQuestion;
+}
 
 //starting quiz starts timer
+    console.log("timer starts");
+    counter = setInterval(timer, 1000);
+    function timer(){
+        let time=75
+        timeCount.textContent = time; //changing the value of timeCount with time value
+        time--; //decrement the time value
+        if (timeCount===0){
+            console.log("Game over");
+            clearInterval(counter);
+        }
+    };
+};
 
 
 
 //when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
+/*var checkAnswer= function(event){
+console.log(event.trigger)
+};
+function checkAnswer (){
+
+};*/
+
+/*load next question when they pick an answer 
+function currentQuestion (){
+
+};*/
 
 
-//load next question when they pick an answer 
 
+//input your name to save score to local storage 
+/*$("#task-form-modal .btn-primary").click(function() {
 
+});*/
 
-
-//input your nma,e to save score to local storage 
-
+//add event listener to start button 
+$( "#start-btn" ).click(function() {
+    console.log("you clicked it!");
+});
+var startBtn = document.querySelector("#start-btn");
+startBtn.addEventListener('click', startQuiz);
+$(document).ready(function() {
+    $("#start-btn").click(function() {
+        $("#start-page").remove();
+    });
+});
 

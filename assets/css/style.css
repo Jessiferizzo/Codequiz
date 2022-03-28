@@ -12,7 +12,7 @@ body {
     align-content:center;
 }
 /*top line header*/
-.first-line{
+.header{
         display:inline-flex;
         flex-grow:1;
         align-items: center; 
@@ -31,7 +31,7 @@ body {
     text-align:left;
 }
 /*Main Container*/
-.container{
+#start-page{
     display:flex;
     flex-wrap:wrap;
     justify-content: center;
