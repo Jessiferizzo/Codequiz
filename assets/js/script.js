@@ -118,11 +118,6 @@ nextQuestionBtns.forEach( function(button) {
   }
 })
 
-if (nextQuestionBtns=== myQuestions[0].correctAnswer[0]){
-    console.log("that's right");
-};
-
-
 /*var checkAnswer= function(event){
 console.log(event.trigger)
 };
