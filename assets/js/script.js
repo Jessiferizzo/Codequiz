@@ -60,14 +60,12 @@ var myQuestions = [
 //variables declared 
 var score=0;
 var myQuestionsIndex=0;
+var count = 75;
 
 //constants declared
 var startPage = document.querySelector("#start-page");
 var quizBox = document.querySelector("#quiz-box");
-var highScore = document.querySelector(".view-score");
-var option_list = document.querySelector(".option_list");
 var timer = document.querySelector("header .timer");
-var timeText = document.querySelector(".timer");
 var timeCount = document.querySelector(".timer");
 var answerChoices = document.getElementById(".answer-choices");
 
@@ -76,23 +74,24 @@ var answerChoices = document.getElementById(".answer-choices");
 function startQuiz (){
     console.log("quiz begins!");
 
-for(i=0;i<myQuestionsIndex.length;i++);{
-    var myQuestions=document.querySelector("#quiz-box");
-    myQuestions.textContent= userQuestion;
-}
+    var setQuestion=document.querySelector("#quiz-box");
+    setQuestion.textContent= myQuestions;
+    
+    //loop through each question and answer array and set to question-box
+    for(i=0;i<myQuestionsIndex.length;i++);{
+        function setQuestion ()
+    }
 
 //starting quiz starts timer
-    console.log("timer starts");
-    counter = setInterval(timer, 1000);
-    function timer(){
-        let time=75
-        timeCount.textContent = time; //changing the value of timeCount with time value
-        time--; //decrement the time value
-        if (timeCount===0){
-            console.log("Game over");
-            clearInterval(counter);
-        }
-    };
+var interval = setInterval(function(){
+  console.log("timer starts");
+  document.querySelector("header .timer").innerHTML=count;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+  }
+}, 1000);
+
 };
 
 
