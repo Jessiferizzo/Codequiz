@@ -39,10 +39,10 @@ body {
     text-align:center;
 }
 /*start page box*/
-.hide h1 {
+.opener h1 {
     font-size: 5rem;
 }
-.hide p{
+.opener p{
     font-size:2.5rem;
     padding:1.5rem;
 }
@@ -77,6 +77,10 @@ body {
 .li {
     margin:0;
     padding:0;
+}
+
+#quiz-box, .score-display{
+    display:none;
 }
 
 /*buttons*/

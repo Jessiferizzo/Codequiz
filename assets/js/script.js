@@ -78,9 +78,9 @@ function startQuiz (){
     setQuestion.textContent= myQuestions;
     
     //loop through each question and answer array and set to question-box
-    for(i=0;i<myQuestionsIndex.length;i++);{
+    /*for(i=0;i<myQuestionsIndex.length;i++);{
         function setQuestion ()
-    }
+    }*/
 
 //starting quiz starts timer
 var interval = setInterval(function(){
@@ -125,6 +125,6 @@ startBtn.addEventListener('click', startQuiz);
 $(document).ready(function() {
     $("#start-btn").click(function() {
         $("#start-page").remove();
+        $( "#quiz-box" ).show();
     });
 });
-
