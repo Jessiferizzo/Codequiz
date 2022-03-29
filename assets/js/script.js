@@ -1,6 +1,5 @@
 //array of questions and answers
 var currentQuestionsIndex=0
-var userChoice=[]
 
 var currentQuestions = [
     {
@@ -149,17 +148,17 @@ nextQuestionBtns.forEach(function(button) {
 
 //check for answer true or false
 var checkAnswer= function(){
+    let userChoice=$(".answer-choices").click(function () {
+        console.log("I hear you!");   
+    })  
     if(userChoice===currentQuestionsIndex.correctAnswer){
     console.log("correct!");
     } else {
         console.log("incorrect");
     }    
 }
-$(".answer-choices").click(function () {
-    console.log("I hear you!");
-    checkAnswer();
-    console.log("checking for accuracy");
-})  
+checkAnswer();
+console.log("answer checked");
 
 
 //when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
