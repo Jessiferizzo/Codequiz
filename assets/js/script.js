@@ -59,7 +59,6 @@ var currentQuestions = [
         correctAnswer:3
       },
   ];
-console.log(currentQuestions);
 //variables declared 
 var score=0;
 var count= 75;
@@ -144,18 +143,24 @@ nextQuestionBtns.forEach(function(button) {
       displayQuestion();
   }
 });
-$(".answer-choices").click(function () {
-    console.log("I hear you!");
-    
-    var checkAnswer= function(){
+
+//find the answer choice user picked
+//id-answer1-4
+
+//check for answer true or false
+var checkAnswer= function(){
     if(userChoice===currentQuestionsIndex.correctAnswer){
     console.log("correct!");
     } else {
         console.log("incorrect");
-    }
-    checkAnswer();
+    }    
 }
-})
+$(".answer-choices").click(function () {
+    console.log("I hear you!");
+    checkAnswer();
+    console.log("checking for accuracy");
+})  
+
 
 //when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
 /*var checkAnswer= function(displayQuestion){
