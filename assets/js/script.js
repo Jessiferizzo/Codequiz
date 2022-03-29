@@ -1,4 +1,7 @@
 //array of questions and answers
+var currentQuestionsIndex=0
+var userChoice=[]
+
 var currentQuestions = [
     {
       question: "Commonly used data types DO Not Include_______?",
@@ -88,7 +91,7 @@ function countdown() {
     }, 1000);
 }
 countdown ();
-};
+
 
 //loads first quiz questions on question box from array 
 const questionEl = document.querySelector("#question")
@@ -104,24 +107,27 @@ const answer3El = document.querySelector("#answer3");
 answer3El.textContent = currentQuestions[0].answers[3]
 const answer4El = document.querySelector("#answer4");
 answer4El.textContent = currentQuestions[0].answers[4] 
+};
 
 function displayQuestion(){
 //loads quiz questions on question box from array 
-var currentQuestionsIndex=0
-var i = 0
+
 
 const questionEl = document.querySelector("#question")
-questionEl.textContent = currentQuestions[currentQuestionsIndex,++i].question
+questionEl.textContent = currentQuestions[currentQuestionsIndex].question
 
 //make question array display in HTML
 const answer1El = document.querySelector("#answer1");
-answer1El.textContent = currentQuestions[currentQuestionsIndex,++i].answers[1]
+answer1El.textContent = currentQuestions[currentQuestionsIndex].answers[1]
 const answer2El = document.querySelector("#answer2");
-answer2El.textContent = currentQuestions[currentQuestionsIndex,++i].answers[2]
+answer2El.textContent = currentQuestions[currentQuestionsIndex].answers[2]
 const answer3El = document.querySelector("#answer3");
-answer3El.textContent = currentQuestions[currentQuestionsIndex,++i].answers[3]
+answer3El.textContent = currentQuestions[currentQuestionsIndex].answers[3]
 const answer4El = document.querySelector("#answer4");
-answer4El.textContent = currentQuestions[currentQuestionsIndex,++i].answers[4]
+answer4El.textContent = currentQuestions[currentQuestionsIndex].answers[4]
+
+currentQuestionsIndex++
+console.log(currentQuestionsIndex);
 }
 
 // the following line turns the HTMLCollection into a true JS array
@@ -131,21 +137,31 @@ let nextQuestionBtns = new Array(...document.getElementsByClassName('answer-choi
 nextQuestionBtns.forEach(function(button) {
 // here you can attach the listeners:
   button.onclick = function(){
-      console.log("you clicked a choice!");
+      console.log("you clicked a choice!",currentQuestionsIndex);
+      if(currentQuestionsIndex>=5){
+        console.log("end quiz");
+    }
       displayQuestion();
   }
 });
+$(".answer-choices").click(function () {
+    console.log("I hear you!");
+    
+    var checkAnswer= function(){
+    if(userChoice===currentQuestionsIndex.correctAnswer){
+    console.log("correct!");
+    } else {
+        console.log("incorrect");
+    }
+    checkAnswer();
+}
+})
 
 //when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
-/*var checkAnswer= function(event){
-console.log(event.trigger)
-
-};
-
-/*load next question when they pick an answer 
-function currentQuestion (){
-
+/*var checkAnswer= function(displayQuestion){
+console.log(displayQuestion.trigger,"answer checked");
 };*/
+
 
 
 
