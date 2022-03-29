@@ -1,5 +1,5 @@
 //array of questions and answers
-var myQuestions = [
+var currentQuestions = [
     {
       question: "Commonly used data types DO Not Include_______?",
       answers: {
@@ -59,7 +59,7 @@ var myQuestions = [
 
 //variables declared 
 var score=0;
-var myQuestionsIndex=0;
+var currentQuestionsIndex=0;
 var count= 75;
 
 //constants declared
@@ -90,40 +90,54 @@ function countdown() {
 }
 countdown ();
 };
+
+//loads first quiz questions on question box from array 
+const questionEl = document.querySelector("#question")
+questionEl.textContent = currentQuestions[0].question
+
+//make question array display in HTML
+const answer1El = document.querySelector("#answer1");
+answer1El.textContent = currentQuestions[0].answers[1]
+const answer2El = document.querySelector("#answer2");
+answer2El.textContent = currentQuestions[0].answers[2]
+const answer3El = document.querySelector("#answer3");
+answer3El.textContent = currentQuestions[0].answers[3]
+const answer4El = document.querySelector("#answer4");
+answer4El.textContent = currentQuestions[0].answers[4] 
+
+function displayQuestion(){
 //loads quiz questions on question box from array 
 const questionEl = document.querySelector("#question")
-questionEl.textContent = myQuestions[0].question
+questionEl.textContent = currentQuestions[currentQuestionsIndex++].question
 
-//answers need IDs added to the li element, but this is an example of what it could look like after you add an ID
+//make question array display in HTML
 const answer1El = document.querySelector("#answer1");
-answer1El.textContent = myQuestions[0].answers[1]
+answer1El.textContent = currentQuestions[currentQuestionsIndex++].answers[1]
 const answer2El = document.querySelector("#answer2");
-answer2El.textContent = myQuestions[0].answers[2]
+answer2El.textContent = currentQuestions[currentQuestionsIndex++].answers[2]
 const answer3El = document.querySelector("#answer3");
-answer3El.textContent = myQuestions[0].answers[3]
+answer3El.textContent = currentQuestions[currentQuestionsIndex++].answers[3]
 const answer4El = document.querySelector("#answer4");
-answer4El.textContent = myQuestions[0].answers[4]
-
-//when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
+answer4El.textContent = currentQuestions[currentQuestionsIndex++].answers[4]
+}
 
 // the following line turns the HTMLCollection into a true JS array
 let nextQuestionBtns = new Array(...document.getElementsByClassName('answer-choices') );
 
 //attach listener to each choice button
-nextQuestionBtns.forEach( function(button) {
+nextQuestionBtns.forEach(function(button) {
   // here you can attach the listeners:
   button.onclick = function(){
       console.log("you clicked a choice!");
-    // and here, you would check if this button is contained by the appropriate question
-  }
-})
+  displayQuestion();
+}
+}
 
+//when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
 /*var checkAnswer= function(event){
 console.log(event.trigger)
-};
-function checkAnswer (){
 
-};*/
+};
 
 /*load next question when they pick an answer 
 function currentQuestion (){
@@ -146,4 +160,4 @@ $("#start-btn").click(function () {
     console.log("returned questions box!");
     startQuiz();
     console.log ("quiz started!");
-    })
+})
