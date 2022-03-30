@@ -143,6 +143,11 @@ nextQuestionBtns.forEach(function(button) {
   }
 });
 
+
+//when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
+/*var checkAnswer= function(displayQuestion){
+console.log(displayQuestion.trigger,"answer checked");
+};*/
 //find the answer choice user picked
 //id-answer1-4
 
@@ -153,18 +158,16 @@ var checkAnswer= function(){
     })  
     if(userChoice===currentQuestionsIndex.correctAnswer){
     console.log("correct!");
+   //add points to total score 
     } else {
         console.log("incorrect");
+    // deducts 15 seconds from timer when incorrect  
     }    
 }
 checkAnswer();
 console.log("answer checked");
 
 
-//when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
-/*var checkAnswer= function(displayQuestion){
-console.log(displayQuestion.trigger,"answer checked");
-};*/
 
 
 
