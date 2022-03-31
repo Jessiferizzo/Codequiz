@@ -5,13 +5,13 @@ var currentQuestions = [
     {
       question: "Commonly used data types DO Not Include_______?",
       answers: {
-        1: "strings",
-        2: "booleans",
-        3: "alerts",
-        4: "numbers",
+        a: "strings",
+        b: "booleans",
+        c: "alerts",
+        d: "numbers",
 
       },
-      correctAnswer: 3
+      correctAnswer:"d"
     },
     {
       question: "The condition in an if / else statement is enclosed with _______?",
@@ -110,65 +110,47 @@ answer4El.textContent = currentQuestions[0].answers[4]
 function displayQuestion(){
 //loads quiz questions on question box from array 
 
-
 const questionEl = document.querySelector("#question")
 questionEl.textContent = currentQuestions[currentQuestionsIndex].question
 
-//make question array display in HTML
+//make question array display in HTML and make into buttons
 const answer1El = document.querySelector("#answer1");
+answer1El = document.createElement("button");
+console.log("button 1 made");
 answer1El.textContent = currentQuestions[currentQuestionsIndex].answers[1]
 const answer2El = document.querySelector("#answer2");
+answer2El = document.createElement("button");
+console.log("button 2 made");
 answer2El.textContent = currentQuestions[currentQuestionsIndex].answers[2]
 const answer3El = document.querySelector("#answer3");
-answer3El.textContent = currentQuestions[currentQuestionsIndex].answers[3]
-const answer4El = document.querySelector("#answer4");
-answer4El.textContent = currentQuestions[currentQuestionsIndex].answers[4]
 
 currentQuestionsIndex++
 console.log(currentQuestionsIndex);
 }
 
-// the following line turns the HTMLCollection into a true JS array
-let nextQuestionBtns = new Array(...document.getElementsByClassName('answer-choices') );
 
-//attach listener to each choice button
-nextQuestionBtns.forEach(function(button) {
-// here you can attach the listeners:
-  button.onclick = function(){
-      console.log("you clicked a choice!",currentQuestionsIndex);
-      if(currentQuestionsIndex>=5){
-        console.log("end quiz");
+function addEventListeners(event) {
+var elementClicked = event.target;
+const answerButtons = document.querySelector(".answer-choices");
+answerButtons= document.createElement("button");
+console.log("you clicked a button!");
+elementClicked= function(){
+function checkCorrectAnswer(elementClicked) {
+        if (elementClicked.textContent === correctAnswer){
+         console.log("correct!");
+         console.log(currentQuestionsIndex.correctAnswer);
+        //add points to total score 
+         } else {
+            console.log("incorrect");
+        timeLeft-15
+        };   
+displayQuestion(); 
+console.log("question shows!");
+checkCorrectAnswer();
+console.log("checked for answer!");
     }
-      displayQuestion();
-  }
-});
-
-
-//when we select a choice we check for true or false (if TRUE submit score, if FALSE reduce time)
-/*var checkAnswer= function(displayQuestion){
-console.log(displayQuestion.trigger,"answer checked");
-};*/
-//find the answer choice user picked
-//id-answer1-4
-
-//check for answer true or false
-var checkAnswer= function(){
-    let userChoice=$(".answer-choices").click(function () {
-        console.log("I hear you!");   
-    })  
-    if(userChoice===currentQuestionsIndex.correctAnswer){
-    console.log("correct!");
-   //add points to total score 
-    } else {
-        console.log("incorrect");
-    // deducts 15 seconds from timer when incorrect  
-    }    
 }
-checkAnswer();
-console.log("answer checked");
-
-
-
+}
 
 
 
