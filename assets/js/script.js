@@ -126,7 +126,14 @@ answer4El.textContent = currentQuestions[currentQuestionsIndex].answers["d"]
 currentQuestionsIndex++
 console.log(currentQuestionsIndex);
 }
- 
+
+function addEventListeners(event) {
+    var elementClicked = event.target;
+    var elementClicked=
+    console.log(elementClicked);
+    (checkCorrectAnswer(elementClicked));
+    console.log("checked for answer!");
+}
 function checkCorrectAnswer(elementClicked) {
     if (elementClicked.textContent === correctAnswer){
      console.log("correct!");
@@ -136,20 +143,22 @@ function checkCorrectAnswer(elementClicked) {
     timeLeft-15
     }
 } 
+// the following line turns the HTMLCollection into a true JS array
+let nextQuestionBtns = new Array(...document.getElementsByClassName('answer-choices') );
 
-var answerButtons = document.querySelector(".answer-choices");
-answerButtons= document.createElement("button");
-console.log("you clicked a button!"); 
-answerButtons.addEventListener("click", displayQuestion);
-console.log("CLICK DAT BUTTON");   
-
-
-
-function addEventListeners(event) {
-        var elementClicked = event.target;
-        (checkCorrectAnswer(elementClicked));
-        console.log("checked for answer!");
+//attach listener to each choice button
+nextQuestionBtns.forEach(function(button) {
+// here you can attach the listeners:
+button.onclick = function(){
+      console.log("you clicked a answer choice!",currentQuestionsIndex);
+      if(currentQuestionsIndex>=5){
+        console.log("end quiz");
+      }  
+      displayQuestion();
+      checkCorrectAnswer();  
 }
+}); 
+
 //input your name to save score to local storage 
 /*$("#task-form-modal .btn-primary").click(function() {
 
