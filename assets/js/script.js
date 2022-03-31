@@ -129,31 +129,31 @@ console.log(currentQuestionsIndex);
 
 // the following line turns the HTMLCollection into a true JS array
 let nextQuestionBtns = new Array(...document.getElementsByClassName('answer-choices') );
+    nextQuestionBtns.forEach(function(button) {
+        // here you can attach the listeners:
+        button.onclick = function(){
+              console.log("you clicked a answer choice!",currentQuestionsIndex);
+              if(currentQuestionsIndex>=5){
+                console.log("end quiz");
+              }  
+              displayQuestion();
+              checkCorrectAnswer();  
+        }
+        });
 
-//attach listener to each choice button
-nextQuestionBtns.forEach(function(button) {
-// here you can attach the listeners:
-button.onclick = function(){
-      console.log("you clicked a answer choice!",currentQuestionsIndex);
-      if(currentQuestionsIndex>=5){
-        console.log("end quiz");
-      }  
-      displayQuestion();
-      checkCorrectAnswer();  
-}
-});
-
-function addEventListeners(event) {
-    var elementClicked = event.target;
-   //add the event listener and in that function run the other function 
-   checkCorrectAnswer(elementClicked);
-   console.log("checked for answer!");
+//attach listener to each choice buttons
+function eventHandler(event) {
+        var elementClicked = event.target;
+        if (nextQuestionBtns.addEventListener('click', eventHandler)){
+        checkCorrectAnswer(elementClicked);
+        console.log(elementClicked);
+        }
    }
-   
+
 function checkCorrectAnswer(elementClicked) {
+    //var elementClicked=element.textContent || element.innerText;
     if (elementClicked.textContent === correctAnswer){
-     console.log("correct!");
-     console.log(currentQuestionsIndex.correctAnswer);
+     console.log(correctAnswer);
      } else {
         console.log("incorrect");
     timeLeft-15
