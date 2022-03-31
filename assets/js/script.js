@@ -11,53 +11,53 @@ var currentQuestions = [
         d: "numbers",
 
       },
-      correctAnswer:"d"
+      correctAnswer:"alerts"
     },
     {
       question: "The condition in an if / else statement is enclosed with _______?",
       answers: {
-        1: "quotes",
-        2: "curly brackets",
-        3: "parenthesis",
-        4: "square brackets",
+        a: "quotes",
+        b: "curly brackets",
+        c: "parenthesis",
+        d: "square brackets",
 
       },
-      correctAnswer: 3
+      correctAnswer:"paranthesis"
     },
     {
       question: "Arrays in JavaScript can be used to store_______?",
       answers: {
-        1: "numbers and strings",
-        2: "other arravs",
-        3: "booleans",
-        4: "all of the above",
-
+        a: "numbers and strings",
+        b: "other arravs",
+        c: "booleans",
+        d: "all of the above",
       },
-      correctAnswer:4
+      correctAnswer:"all of the above"
     },
     {
         question: "String values must be enclosed within _______ when being assigned to variables.",
         answers: {
-            1: "commas",
-            2: "curly brackets",
-            3: "quotes",
-            4: "parenthesis",
+            a: "commas",
+            b: "curly brackets",
+            c: "quotes",
+            d: "parenthesis",
 
         },
-        correctAnswer:3
+        correctAnswer:"quotes"
       },
       {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
         answers: {
-            1: "JavaScript",
-            2: "terminal/bash",
-            3: "for loops",
-            4: "console.log",
+            a: "JavaScript",
+            b: "terminal/bash",
+            c: "for loops",
+            d: "console.log",
               
         },
-        correctAnswer:3
+        correctAnswer:"console.log"
       },
   ];
+  console.log(currentQuestions);
 //variables declared 
 var score=0;
 var count= 75;
@@ -97,14 +97,14 @@ questionEl.textContent = currentQuestions[0].question
 
 //make question array display in HTML
 const answer1El = document.querySelector("#answer1");
-answer1El.textContent = currentQuestions[0].answers[1]
-console.log(currentQuestions[0]);
+answer1El.textContent = currentQuestions[0].answers["a"]
+console.log(currentQuestions[0].answers["a"]);
 const answer2El = document.querySelector("#answer2");
-answer2El.textContent = currentQuestions[0].answers[2]
+answer2El.textContent = currentQuestions[0].answers["b"]
 const answer3El = document.querySelector("#answer3");
-answer3El.textContent = currentQuestions[0].answers[3]
+answer3El.textContent = currentQuestions[0].answers["c"]
 const answer4El = document.querySelector("#answer4");
-answer4El.textContent = currentQuestions[0].answers[4] 
+answer4El.textContent = currentQuestions[0].answers["d"] 
 };
 
 function displayQuestion(){
@@ -115,45 +115,41 @@ questionEl.textContent = currentQuestions[currentQuestionsIndex].question
 
 //make question array display in HTML and make into buttons
 const answer1El = document.querySelector("#answer1");
-answer1El = document.createElement("button");
-console.log("button 1 made");
-answer1El.textContent = currentQuestions[currentQuestionsIndex].answers[1]
+answer1El.textContent = currentQuestions[currentQuestionsIndex].answers["a"]
 const answer2El = document.querySelector("#answer2");
-answer2El = document.createElement("button");
-console.log("button 2 made");
-answer2El.textContent = currentQuestions[currentQuestionsIndex].answers[2]
+answer2El.textContent = currentQuestions[currentQuestionsIndex].answers["b"]
 const answer3El = document.querySelector("#answer3");
+answer3El.textContent = currentQuestions[currentQuestionsIndex].answers["c"]
+const answer4El = document.querySelector("#answer4");
+answer4El.textContent = currentQuestions[currentQuestionsIndex].answers["d"]
 
 currentQuestionsIndex++
 console.log(currentQuestionsIndex);
 }
+ 
+function checkCorrectAnswer(elementClicked) {
+    if (elementClicked.textContent === correctAnswer){
+     console.log("correct!");
+     console.log(currentQuestionsIndex.correctAnswer);
+     } else {
+        console.log("incorrect");
+    timeLeft-15
+    }
+} 
+
+var answerButtons = document.querySelector(".answer-choices");
+answerButtons= document.createElement("button");
+console.log("you clicked a button!"); 
+answerButtons.addEventListener("click", displayQuestion);
+console.log("CLICK DAT BUTTON");   
+
 
 
 function addEventListeners(event) {
-var elementClicked = event.target;
-const answerButtons = document.querySelector(".answer-choices");
-answerButtons= document.createElement("button");
-console.log("you clicked a button!");
-elementClicked= function(){
-function checkCorrectAnswer(elementClicked) {
-        if (elementClicked.textContent === correctAnswer){
-         console.log("correct!");
-         console.log(currentQuestionsIndex.correctAnswer);
-        //add points to total score 
-         } else {
-            console.log("incorrect");
-        timeLeft-15
-        };   
-displayQuestion(); 
-console.log("question shows!");
-checkCorrectAnswer();
-console.log("checked for answer!");
-    }
+        var elementClicked = event.target;
+        (checkCorrectAnswer(elementClicked));
+        console.log("checked for answer!");
 }
-}
-
-
-
 //input your name to save score to local storage 
 /*$("#task-form-modal .btn-primary").click(function() {
 
