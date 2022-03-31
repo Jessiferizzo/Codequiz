@@ -127,22 +127,6 @@ currentQuestionsIndex++
 console.log(currentQuestionsIndex);
 }
 
-function addEventListeners(event) {
-    var elementClicked = event.target;
-    var elementClicked=
-    console.log(elementClicked);
-    (checkCorrectAnswer(elementClicked));
-    console.log("checked for answer!");
-}
-function checkCorrectAnswer(elementClicked) {
-    if (elementClicked.textContent === correctAnswer){
-     console.log("correct!");
-     console.log(currentQuestionsIndex.correctAnswer);
-     } else {
-        console.log("incorrect");
-    timeLeft-15
-    }
-} 
 // the following line turns the HTMLCollection into a true JS array
 let nextQuestionBtns = new Array(...document.getElementsByClassName('answer-choices') );
 
@@ -157,7 +141,24 @@ button.onclick = function(){
       displayQuestion();
       checkCorrectAnswer();  
 }
-}); 
+});
+
+function addEventListeners(event) {
+    var elementClicked = event.target;
+   //add the event listener and in that function run the other function 
+   checkCorrectAnswer(elementClicked);
+   console.log("checked for answer!");
+   }
+   
+function checkCorrectAnswer(elementClicked) {
+    if (elementClicked.textContent === correctAnswer){
+     console.log("correct!");
+     console.log(currentQuestionsIndex.correctAnswer);
+     } else {
+        console.log("incorrect");
+    timeLeft-15
+    }
+} 
 
 //input your name to save score to local storage 
 /*$("#task-form-modal .btn-primary").click(function() {
